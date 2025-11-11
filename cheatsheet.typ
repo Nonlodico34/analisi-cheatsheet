@@ -1,13 +1,11 @@
 #import "@preview/showybox:2.0.4"
-#import "/typst/lib.typ": *
+// #import "/typst/lib.typ": *
 
 #set page(columns: 3, margin: 5pt)
 #set columns(gutter: 0pt)
 #set text(size: 8pt)
 
 // #show: note => classnote(note, title: "o-piccolo")
-
-
 #place(
   top + center,
   float: true,
