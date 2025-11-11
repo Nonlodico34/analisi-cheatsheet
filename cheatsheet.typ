@@ -30,7 +30,16 @@
 #lorem(10)
 
 #section[limiti notevoli][
-    #lorem(100)
+    $ lim_(x->oo) (1 + frac(1,x))^x = e $
+    $ lim_(x->0) frac(sin x, x) = 1 $
+
+    $ lim_(x->0) frac(1 - cos x, x^2) = frac(1, 2) $
+    $ lim_(x->0) frac(log(1 + x), x) = 1 $
+    $ lim_(x->0) frac(a^x - 1, x) = 1 text(" con ") a > 0 $
+
+    $ lim_(x->0) frac(tan x, x) = lim_(x->0) frac(arctan x, x) = lim_(x->0) frac(arcsin x, x) = 1 $
+    
+    $ lim_(x->x^+) x log x = 0 $
 ]
 #section[limiti notevoli][
     #lorem(100)
