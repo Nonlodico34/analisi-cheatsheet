@@ -1,21 +1,34 @@
 #import "@preview/showybox:2.0.4"
 // #import "/typst/lib.typ": *
-
-#set page(columns: 5, margin: 5pt, flipped: true)
-#set columns(gutter: 0pt)
 #set text(size: 6pt, font: ("Atkinson Hyperlegible Next", "Atkinson Hyperlegible"))
 
-// #show: note => classnote(note, title: "o-piccolo")
-#place(
-  top + center,
-  float: true,
-  scope: "parent",
-  text(1.4em, weight: "bold")[
-    Analisi 1 Cheatsheet
-  ],
-)
+#let rainbow(content) = {
+  set text(fill: gradient.linear(..color.map.inferno.map(a => a.darken(30%))))
+  box(content)
+}
 
-#let section(title, content, color: black) = {
+#let footer = [
+  #pad(y: -2pt)[
+    #h(1fr)
+    _Made by #rainbow[Pietro Tamilia] (BRA1L0R) and #rainbow[Matteo Grande] (MattWaX)_
+  ]
+]
+
+#set page(columns: 5, margin: 5pt, flipped: true, footer: footer)
+#set columns(gutter: 0pt)
+
+
+// #show: note => classnote(note, title: "o-piccolo")
+// #place(
+//   top + center,
+//   float: true,
+//   scope: "parent",
+//   text(1.4em, weight: "bold")[
+//     Analisi 1 Cheatsheet
+//   ],
+// )
+
+#let section(title, content, color: black, raw: false) = {
   set table(stroke: color)
 
   showybox.showybox(
@@ -23,7 +36,7 @@
     frame: (
       radius: 1pt,
       title-inset: 1pt,
-      inset: 4pt,
+      inset: if raw { 0pt } else { 4pt },
       title-color: color,
       border-color: color,
       // body-color: color.transparentize(90%),
@@ -41,51 +54,74 @@
 #section(color: green.darken(30%))[serie matematiche][
   === Serie notevoli
   #table(columns: (1fr, 1fr))[
+    === Serie armonica
     $ sum 1/n^lambda $
 
     converge per $lambda > 1$
   ][
-    $ sum 1/(n |log n|^lambda) $
+    === Serie armonica 2
+    $ sum 1/(n |log n|^lambda) "&" sum 1/(n log_lambda n) $
 
     converge per $lambda > 1$
+  ][
+    === Serie telescopica
+    $ sum b_(n+1) - b_n = lim_(n -> oo) b_(n+1 - b_n) $
+    converge $lim_(n->oo) b_n = L$
   ]
-  === Criteri di convergenza
-  #table(columns: (auto, auto), inset: 0pt)[
+  === Criteri di convergenza $C(s_n) = s_n "converge"$
+  #table(columns: (1fr, 1fr), inset: 0pt)[
     #table[
       === Criterio del confronto
       Date due serie $sum a_n "e" sum b_n$ tale che $L = lim_(n->oo) (a_n)/(b_n)$
       - $L in RR =>$ $C(a_n)$ #iff $C(b_n)$
       - $L = 0 =>$ $C(b_n)$ $=> C(a_n)$
       - $L = oo =>$ $not(C(b_n))$ $=> not(C(a_n))$
+    ]
+  ][
+    #table(columns: 1fr)[
+      Condizioni comuni:
+      - $L$ > 1 diverge
+      - $L$ < 1 converge
+    ][
+      === Criterio del rapporto
+      $L = lim_(n->oo) a_(n+1)/a_n$][
+      === Criterio della radice
+      $L = lim_(n->oo) root(n, a_n)$
     ][
       === Criterio di Sostituzione
       $C(sum a_n) iff C(sum 2^n a_(2n))$
     ]
-  ][
-    #table[
-      - $L$ > 1 diverge
-      - $L$ < 1 converge
+  ]
+
+  === Criteri di convergenza x segno variabile
+  #table(columns: (1fr, 1fr), inset: 0pt)[
+    #table(columns: 1fr)[
+      === Criterio conv. assoluta
+      $C(sum |a_n|) => C(sum a_n)$
     ][
-      === Criterio del repporto
-      $L = lim_(n->oo) a_(n+1)/a_n$][
-      === Criterio della radice
-      $L = lim_(n->oo) root(n, a_n)$
+      === Criterio di Dirichet
+      $a_n, b_n$ #underline[successioni]:
+      - $sum a_n$ è limitata
+      - $b_n -> 0$
+      - $b_(n+1) <= b_n$
+      Allora $sum a_n b_n$ converge
+    ]
+  ][
+    #table(columns: 1fr)[
+      === Criterio di Leibnitz
+      #grid(columns: (1fr, 1.2fr))[$sum (-1)^n alpha_n$][
+        1. $alpha_n > 0$ definitivam.
+        2. $alpha_n -> 0$
+        3. $alpha_(n+1) <= alpha_n$
+      ]
+    ][
+      === Teorema dei carabinieri
+      $ a_n <= phi_n <= b_n $
+      $C(a_n) and C(b_n) => C(phi_n)$
     ]
   ]
 ]
-#section(color: red.darken(50%))[limiti notevoli][
-  #set text(size: 5pt)
-  #table(columns: (1fr, 1fr, 1fr))[
-    $ lim_(x->0) frac(sin x, x) = 1 $][
-    $ lim_(x->0) (log_a (1 + x))/ x = 1/(ln a) $][
-    $ lim_(x->oo) (1 + 1/x)^x = e $][
-    $ lim_(x->0) (overbrace(a^x, a>0) - 1)/(x) = ln a $][
-    $ lim_(x->0) (1 - cos x)/(x^2) = 1/2 $][
-    $ lim_(x->0) ((1+x)^k - 1)/x = k $][
-    $ lim_(x->0) (tan x)/x = 1 $][
-    $ lim_(x->0) arcsin(x)/x = 1 $][
-  ]
-]
+
 #section(color: aqua.darken(30%))[sviluppi di taylor][
   #table(columns: (auto, 1fr))[
     $ sin(x) $
@@ -148,20 +184,38 @@
   ][
     $x - x^3/3 + 2/15x^5 - 17/315x^7 + 62/2835x^9 + o(x^9)$
   ]
+]#section(color: red.darken(50%))[limiti notevoli][
+  #set text(size: 5pt)
+  #table(columns: (1fr, 1fr, 1fr))[
+    $ lim_(x->0) frac(sin x, x) = 1 $][
+    $ lim_(x->0) (log_a (1 + x))/ x = 1/(ln a) $][
+    $ lim_(x->oo) (1 + 1/x)^x = e $][
+    $ lim_(x->0) (overbrace(a^x, a>0) - 1)/(x) = ln a $][
+    $ lim_(x->0) (1 - cos x)/(x^2) = 1/2 $][
+    $ lim_(x->0) ((1+x)^k - 1)/x = k $][
+    $ lim_(x->0) (tan x)/x = 1 $][
+    $ lim_(x->0) arcsin(x)/x = 1 $][
+  ]
 ]
-#section[definizioni][
+#section(color: purple.darken(70%))[definizioni][
   Da mettere:
   - definizione massimo minimo ecc ecc
+  - definizione SUP INF
+  - definizione funzione lipschizstiana o come cazzo si scrive
 
   === Funzioni $f:A -> B$
 
-  #table(columns: (auto, auto))[
+  #table(columns: (1fr, 1fr))[
     === Suriettiva
     $ forall b in B exists a in A | f(a) = b \ "Im"(f) = B $
+
+    #set align(center)
     #image("./assets/suriettiva.png", height: 30pt)
   ][
     === Iniettiva
     $ forall a_1, a_2 in A | a_1 != a_2 \ => f(a_1) != f(a_2) $
+
+    #set align(center)
     #image("./assets/iniettiva.png", height: 30pt)
   ]
 
@@ -193,6 +247,31 @@
   ]
 ]
 
+#section()[funzioni iperboliche][
+  TODO
+]
+#section[formule trigonometriche][sigh vanno messe anche queste]
+
+#section[derivate / primitive][TODO (basta una sola sezione per derivate e integrali)]
+
+#section[integrali][
+  Da mettere:
+  - Proprietà degli integrali
+  - Tecniche di integrazione
+  - integrali circolari? (il grande ritorno)
+  - solidi per integrazione
+  - criteri di convergenza intregrali "impropri"
+]
+
+#section[numeri complessi][Li dobbiamo ancora fare]
+#section[equazioni differenziali][Le dobbiamo ancora fare]
+
 #pagebreak()
 
-ciao
+Grafici di funzione (insieme alle loro derivate?) da inserire con piene notazioni:
+- e^x
+- log(x)
+- sin, cos, tan, cot, sec, csc,
+- arcsin, arccos, arctan
+- sinh, cosh, tanh
+
