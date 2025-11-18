@@ -264,7 +264,32 @@
 
 
 #section()[funzioni iperboliche][
-  TODO
+  #table(columns: (auto, auto, 1fr))[
+    $sinh x = (e^x - e^(-x))/2$
+  ][
+    $ lim_(x->plus.minus oo) sinh x = plus.minus oo $
+  ][
+    dispari
+  ][
+    $cosh x = (e^x + e^(-x))/2$
+  ][
+    $ lim_(x->plus.minus oo) cosh x = plus oo $
+  ][
+    pari
+  ][
+    $tanh x = (sinh x)/(cosh x) = (e^x - e^(-x))/(e^x + e^(-x))$
+  ][
+    $ lim_(x->plus.minus oo) tanh x = plus.minus 1 $
+  ][
+    dispari
+  ]
+
+  #table(columns: (1fr, 1fr))[
+    $ sinh(2x) = 2 sinh x cosh x $
+  ][
+    $ cosh(2x) = (sinh x)^2 + (cosh x)^2 $
+  ]
+  $ (cosh x)^2 - (sinh x)^2 = 1 $
 ]
 #section[formule trigonometriche][
   - Funzioni trigonometriche, simmetrie, definizioni
