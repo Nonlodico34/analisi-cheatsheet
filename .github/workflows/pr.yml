@@ -7,8 +7,8 @@ on:
 jobs:
   build:
     permissions:
-        contents: write-all
-        pull-requests: write-all
+        contents: write
+        pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +26,7 @@ jobs:
           name: PDF
           path: cheatsheet.pdf
       - name: Add link with comment
-        uses: thollander/actions-comment-pull-request@v3
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             Link al PDF compilato ${{ steps.artifact.outputs.artifact-url }}
