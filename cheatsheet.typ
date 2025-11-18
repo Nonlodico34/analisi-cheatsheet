@@ -191,10 +191,6 @@
 ]
 
 #section(color: aqua.darken(30%))[sviluppi di taylor][
-  TODO:
-  - proprietà degli o piccolo
-
-
   #table(columns: (auto, 1fr))[
     $f(x)_(x=a)$
   ][
@@ -259,6 +255,21 @@
     $tanh(x)$
   ][
     $x - x^3/3 + 2/15x^5 - 17/315x^7 + 62/2835x^9 + o(x^9)$
+  ]
+
+  proprietà degli o piccolo
+  #table(columns: (1fr, 1fr, 1fr))[
+    $o(g) plus.minus o(g) = o(g)$
+  ][
+    $o(g) dot o(g) = o(g^2)$
+  ][
+    $o(g)/o(g) = 0$
+  ][
+    $o(o(g)) = o(g)$
+  ][
+    $a dot o(g) = o(g)$
+  ][
+    $o(1) = "infinitesimo"$
   ]
 ]
 
