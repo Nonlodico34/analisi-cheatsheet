@@ -403,6 +403,18 @@
   ][
     #text(
       fill: derivate,
+      $ a dot log(a) $
+    )
+  ][
+    $ a^x $
+  ][
+    #text(
+      fill: integrali,
+      $ (a^x)/(log(a)) $
+    )
+  ][
+    #text(
+      fill: derivate,
       $ cos x $,
     )
   ][
@@ -411,6 +423,10 @@
     #text(
       fill: integrali,
       $ -cos x $,
+    )
+  ][
+    #text(
+      [],
     )
   ][
     #text(
@@ -426,10 +442,6 @@
     )
   ][
     #text(
-      [],
-    )
-  ][
-    #text(
       fill: derivate,
       $ cosh x $,
     )
@@ -439,6 +451,22 @@
     #text(
       fill: integrali,
       $ cosh x $,
+    )
+  ][
+    #text(
+      [],
+    )
+  ][
+    #text(
+      fill: derivate,
+      $ sinh x $,
+    )
+  ][
+    $ cosh x $
+  ][
+    #text(
+      fill: integrali,
+      $ sinh x $,
     )
   ]
 
