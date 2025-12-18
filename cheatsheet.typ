@@ -632,7 +632,7 @@
     $z = a + b i$ ][ $z= c + d i$
     ][ $z+w = (a+c) + i(b+d)$ ][ $z dot w = (a c - b d) + i(a d + b c)$
     ][ $1/z = a/(a^2 + b^2) - (b i)/(a^2 + b^2)$ ][
-      $w/z = (a/(a^2 + b^2) - (b i)/(a^2 + b^2))(c + d i)$
+      $z/w = (a c + b d)/(c^2 + d^2) + i (b c - a d)/(c^2 + d^2)$
     ]
   === Trigonometria
   #table(columns: (auto, auto))[
