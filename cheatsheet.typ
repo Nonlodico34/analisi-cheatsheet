@@ -638,18 +638,28 @@
   #table(columns: (1fr, 1fr))[
       $z = rho(cos theta + i sin theta) = rho e^(i theta)$
   ][
-      $w = r(cos alpha + i sin alpha) = r e^(i alpha)$
+      $w = r(cos phi + i sin phi) = r e^(i phi)$
   ][
-      $z dot w &= rho dot r [cos(theta + alpha) + i sin(theta + alpha)]$
+      $z dot w &= rho dot r [cos(theta + phi) + i sin(theta + phi)]$
   ][
-      $z / w &= rho / r [cos(theta - alpha) + i sin(theta - alpha)]$
+      $z / w &= rho / r [cos(theta - phi) + i sin(theta - phi)]$
   ][
-      $ z^n = rho^n e^(i theta n) = rho^n [cos(theta n) + i sin(theta n)]$
+      $z^n = rho^n e^(i theta n) = rho^n [cos(theta n) + i sin(theta n)]$
+  ]
+
+  === Radici del polinomio
+  Sia $w in CC$, si dice che $z$ è una radice _n-esima_ complessa di $w$ se $z^n = w$,
+  se $z != 0$ allora esistono $n$ radici n-esime complesse
+
+  Se $z = rho e^(i theta)$ e $w = r e^(i phi)$ 
+  allora $z^n = w => rho^n e^(n i theta) = r e^(i phi)$\
+  Allora si ha che\
+  #align(center)[
+      $rho = root(n,r)$ e $theta_k = phi/n + (2k pi)/n$ con $k = 0,1,dots,n-1$
   ]
 
   - Identità di eulero
   - Identità trigonometriche e numeri complessi
-  - Radici del polinomio
 ]
 #section[equazioni differenziali][
     === Un po' di teoria i guess?
