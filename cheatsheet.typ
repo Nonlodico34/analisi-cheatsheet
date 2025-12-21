@@ -619,13 +619,21 @@
     $ integral_a^b f(x)g(x) d x = f(c) integral_a^b g(x) d x $
   ]
 
+  === Tecnice d'Integrazione
+  #table(columns: (auto, 1fr))[
+    ==== Per Parti
+    $ integral F dot g" "d x = F dot G - integral f dot G" "d x $
+    $ integral_a^b F dot g" "d x = [F dot G]_a^b - integral_a^b f dot G" "d x $
+  ][
+    ==== Sostituzione
+    ...
+  ]
+
   Da mettere:
-  - Tecniche di integrazione
   - integrali circolari? (il grande ritorno)
   - solidi per integrazione
   - qualche trucco sulle aree?
   - criteri di convergenza intregrali "impropri"
-  - Teorema della media?
 ]
 
 #section[numeri complessi][
