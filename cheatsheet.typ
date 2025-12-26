@@ -6,7 +6,7 @@
   "Atkinson Hyperlegible Next",
   "Atkinson Hyperlegible",
 ))
-#set table(inset: 3pt, stroke: .5pt)
+#set table(inset: 3pt, stroke: 1pt)
 #set grid(row-gutter: 10pt)
 #show math.equation: set text(size: 5pt)
 
@@ -280,50 +280,36 @@
 ]
 
 
-#section()[funzioni iperboliche][
-  #table(columns: (1fr, 1fr, auto))[
-    $sinh x = (e^x - e^(-x))/2$
-  ][
-    $ lim_(x->plus.minus oo) sinh x = plus.minus oo $
-  ][
-    dispari
-  ][
-    $cosh x = (e^x + e^(-x))/2$
-  ][
-    $ lim_(x->plus.minus oo) cosh x = plus oo $
-  ][
-    pari
-  ][
-    $tanh x = (sinh x)/(cosh x) = (e^x - e^(-x))/(e^x + e^(-x))$
-  ][
-    $ lim_(x->plus.minus oo) tanh x = plus.minus 1 $
-  ][
-    dispari
-  ]
+// #section()[funzioni iperboliche][
+//   #table(columns: (1fr, 1fr, auto))[
+//     $ sinh x = (e^x - e^(-x))/2 $
+//   ][
+//     $ lim_(x->plus.minus oo) sinh x = plus.minus oo $
+//   ][
+//     dispari
+//   ][
+//     $cosh x = (e^x + e^(-x))/2$
+//   ][
+//     $ lim_(x->plus.minus oo) cosh x = plus oo $
+//   ][
+//     pari
+//   ][
+//     $tanh x = (sinh x)/(cosh x) = (e^x - e^(-x))/(e^x + e^(-x))$
+//   ][
+//     $ lim_(x->plus.minus oo) tanh x = plus.minus 1 $
+//   ][
+//     dispari
+//   ]
 
-  #table(columns: (1fr, 1fr))[
-    $ sinh(2x) = 2 sinh x cosh x $
-  ][
-    $ cosh(2x) = (sinh x)^2 + (cosh x)^2 $
-  ]
-  $ (cosh x)^2 - (sinh x)^2 = 1 $
-]
-#section[formule trigonometriche][
-  - Funzioni trigonometriche, simmetrie, definizioni
-  - Formule trigonometriche tutte quelle possibili immaginabili
-    - Addizione
-    - Duplicazione
-    - Bisezione
-    - Prostaferesi
-    - Parametriche
-]
+//   #table(columns: (1fr, 1fr))[
+//     $ sinh(2x) = 2 sinh x cosh x $
+//   ][
+//     $ cosh(2x) = (sinh x)^2 + (cosh x)^2 $
+//   ]
+//   $ (cosh x)^2 - (sinh x)^2 = 1 $
+// ]
 
 #section(color: rgb("#a47b1d"))[derivate / primitive][
-
-  TODO:
-  // - Retta tangente
-  - Punti di non derivabilità
-
   #let derivate = black;
   #let integrali = black;
 
@@ -610,6 +596,15 @@
     ]
 ]
 
+#section[formule trigonometriche][
+  - Funzioni trigonometriche, simmetrie, definizioni
+  - Formule trigonometriche tutte quelle possibili immaginabili
+    - Addizione
+    - Duplicazione
+    - Bisezione
+    - Prostaferesi
+    - Parametriche
+]
 
 #section[integrali][
   === Proprietà
@@ -822,8 +817,35 @@
   ]
 ]
 
+#section(color: color.olive.darken(40%))[funzioni iperboliche][
+  === Funzioni
+  #grid(columns: (1fr, 1fr, 1fr))[
+    $ sinh x = (e^x - e^(-x))/2 $][
+    $ cosh x = (e^x + e^(-x) )/2 $][
+    $ tanh x = (sinh x) / (cosh x) $]
+
+
+  === Algebra iperbolica
+  #table(columns: (1fr, 1fr))[
+    $ (sinh x)^2 = (e^(2x) + e^(-2x) - 2)/4 $][
+    $ (cosh x)^2 = (e^(2x) + e^(-2x) + 2)/4 $][
+    $ sinh 2x = 2 sinh x cosh x $ ][
+    $ cosh 2x = cosh^2 x + sinh^2 x $]
+    $ (cosh x)^2 - (sinh x)^2 = 1 $
+
+    === Grafici delle funzioni
+    #figure(image("./assets/iperboliche.png", height: 75pt))
+]
+
 #pagebreak()
 
+#set page(columns: 4)
+#set text(size: 6pt)
+#show math.equation: set text(size: 6pt)
+
+
+
+  === Quadrati
 #image("assets/grafici-1.png")
 #image("assets/grafici-2.png")
 #image("assets/grafici-3.png")
