@@ -625,7 +625,7 @@
     ==== Media integrale
     $f : [a,b] -> RR$ allora
     $exists c in [a,b]$:\
-    $ mu = f(c) = (integral_a^b f(x) d x)/(a-b) $
+    $ mu = f(c) = (integral_a^b f(x) d x)/ (b-a) $
   ][
     ==== Media integrale pesata
     $f,g : [a,b] -> RR$ con $g > 0$ in $[a,b]$ allora
@@ -661,22 +661,19 @@
   #table(columns: (1fr, 1fr))[
 
       ===== Passo 1: Divisione
-      Se $"grado" P(x) >= "grado" Q(x)$:
       $ (P(x))/(Q(x)) = A(x) + (R(x))/(Q(x)) $
-      Dove $A(x)$ è il risultato e $R(x)$ è il resto della divisione
+      - $A(x)$ è il risultato, $R(x)$ il resto.
+      - Integrare A(x) normalmente, proseguire per risolvere il resto.
   ][
       ===== Passo 2: Fattorizzazione
       Scomporre il polinomio al denominatore in prodotti di polinomi di primo grado
   ][
       ===== Passo 3: Sistema Lineare
-      Riscrivere la funzione razionale in somma di funzioni razionali più semplici \
-      Per ogni $A/(x - a)^n$ \
-      Scriviamo $A/(x - a) + A/(x - a)^2 + dots + C/(x - a)^n$ \
-      Infine trovare i valori delle costanti al numeratore imponendo un sistema lineare
+      Dividere in somma di fattori
+      $ A/(x-a) + B/(x-b) + ... $
   ][
       ===== Passo 4: Integrazione
       Integrare le funzioni razionali semplici, usando
-            $ integral (f'(x))/f(x) d x = ln|f(x)| $
   ]
 
 
@@ -687,18 +684,6 @@
   - qualche trucco sulle aree?
 
   === Integrali Impropri
-  // #table(columns: 1fr, inset: 2pt)[
-  //   Un integrale è detto improprio quando uno o entrambi i seguenti casi sono veri:
-  //   #table(columns: (1fr, 1fr))[
-  //     ==== Prima Specie
-  //     L'intervallo di integrazione è illimitato
-  //     $ integral_a^oo f(x) d x ==> lim_(t->oo) integral_a^t f(x) d x $
-  //   ][
-  //     ==== Seconda Specie
-  //     L'integranda non è limitata \
-  //     Se $f(x)$ non è definita in $a$
-  //     $ integral_a^b f(x) d x ==> lim_(t->0) integral_(a+t)^b f(x) d x $
-  //   ]
     #table(columns: 1fr)[
       ==== Caso particolare $integral 1/x^a d x$
       Sia $a>0$:
@@ -718,9 +703,20 @@
         $
       ]
     ]
-    TODO: criteri di confronto integrali impropri
   // ]
+  #table(columns: 1fr)[
+      === Integrale di Gauss
+      #figure(image("assets/gaussiana.png"), caption: [Grafico di $e^(-x^2)$])
+
+      #grid(columns: (1fr, 1fr))[
+      $ integral_(-oo)^(+oo) e^(-x^2) d x = sqrt(pi) $
+      ][
+
+          $ integral_0^(+oo) e^(-x^2) d x = (sqrt(pi))/2 $
+      ]
+  ]
 ]
+
 
 #section[numeri complessi][
   === Polinomio a coefficienti reali
