@@ -22,6 +22,13 @@
   ]
 ]
 
+#let nb(content) = [
+  #box(inset: 1pt, outset: 0pt, baseline: 1pt, fill: black, radius: 1pt)[
+    #set text(fill: white, weight: "bold")
+    #content
+  ]
+]
+
 #set page(columns: 5, margin: 5pt, flipped: true, footer: footer)
 #set columns(gutter: 0pt)
 
@@ -685,7 +692,7 @@
     $ A/(x-a) + B/(x-b) + ... $
   ][
     ===== Passo 4: Integrazione
-    Integrare le funzioni razionali semplici, usando
+    Integrare le funzioni razionali semplici
   ]
 
 
@@ -750,7 +757,7 @@
     $Im(z) ~ y$ sul piano cartesiano\
     $Re(z) ~ x$ sul piano cartesiano
 
-    #text(size: 3pt)[N.B: parte reale e parte immaginaria sono entrambi due numeri reali, dunque $Im(2i) = 2$]
+    #nb[NB]: $Im(2i) = 2$, non $2i$
   ]
   === Algebretta
   #table(columns: (1fr, 1fr))[
@@ -793,8 +800,9 @@
   #table(columns: (1fr, 1fr))[
     === Variabili separabili
     $ y'(x) = y(x)g(x) $
-    Si risolve dividendo per $y(x)$ \
-    $arrow.double integral (y'(x))/y(x) = integral g(x)$
+    Si risolve dividendo per $y(x)$ ed integrando ambo i lati \
+    $ integral (y'(x))/y(x) = integral g(x) $
+    #nb[NB]: ricordarsi di aggiungere costante $c$
   ][
     === Lineari del primo ordine
     $ y'(x) = y(x)f(x) + g(x) $
