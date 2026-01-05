@@ -901,10 +901,6 @@
   === #text(fill: green.darken(40%))[sin $RR -> [-1; 1]$], #text(fill: orange)[cos $RR -> [-1; 1]$], tan $RR \\ {pi/2 + k pi} -> RR$
   #image("assets/sincostan.jpeg")
 
-
-  )
-
-
   === #text(fill: green.darken(40%))[arcsin $[-1;1] -> [-pi/2; pi/2]$], #text(fill: orange)[arccos $[-1;1] -> [0; pi]$], arctan $RR -> (-pi/2; pi/2)$
   #image("assets/arcsinarccosarctan.jpeg")
 
